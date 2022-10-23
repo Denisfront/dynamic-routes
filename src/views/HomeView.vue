@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="container">
+    <main>
+      <div>{{ currentLang === "ru" ? "Какой-то текст" : "Text" }}</div>
+    </main>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapState } from "vuex";
 
 export default {
   name: "HomeView",
-  components: {
-    HelloWorld,
+  computed: {
+    ...mapState({
+      currentLang: (state) => state.lang,
+    }),
   },
 };
 </script>
+
+<style>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu__list {
+  display: flex;
+  column-gap: 20px;
+}
+</style>
