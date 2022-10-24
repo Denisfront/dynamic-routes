@@ -1,8 +1,10 @@
 import { createStore } from "vuex";
 
+const DEFAULT_LANG = "ru";
+
 export default createStore({
   state: {
-    lang: localStorage.getItem("lang"),
+    lang: localStorage.getItem("lang") || DEFAULT_LANG,
   },
   getters: {},
   mutations: {
